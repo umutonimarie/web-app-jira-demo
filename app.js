@@ -4,25 +4,18 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer((req, res) => {
-  // Home route
-  if (req.url === '/') {
+  if (req.url === '/login') {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Login Route\n');
+  } else if (req.url === '/register') {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Register Route\n');
+  } else {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     res.end('Hello, World\n');
-  }
-
-  // NEW ROUTE: /about
-  else if (req.url === '/about') {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('This is the About page\n');
-  }
-
-  // If route not found
-  else {
-    res.statusCode = 404;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('404 - Page Not Found\n');
   }
 });
 
